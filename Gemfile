@@ -16,8 +16,12 @@ gem 'turbo-rails'
 gem 'simple_form'
 gem 'slim-rails'
 
+gem 'omniauth-github'
+gem 'omniauth-rails_csrf_protection'
+
 group :development, :test do
   gem 'debug', platforms: %i[mri], require: 'debug/prelude'
+  gem 'dotenv-rails'
   gem 'faker'
 end
 
