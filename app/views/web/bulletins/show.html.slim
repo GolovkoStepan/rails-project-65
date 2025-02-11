@@ -1,0 +1,18 @@
+.card.border-0.p-4
+  .row.g-0
+    .col-md-4
+      = image_tag(@bulletin.image, class: 'img-fluid')
+    
+    .col-md-8
+      .card-body.pt-0
+        .card-title
+          h4
+            = @bulletin.title
+            = link_to edit_bulletin_path(@bulletin), class: 'float-end' do
+              i.bi.bi-pencil-square
+
+        p.card-text = @bulletin.description
+        p.card-text
+          span.float-end.text-body-secondary
+            small.me-2 = @bulletin.user.email
+            small = time_ago_in_words(@bulletin.created_at)

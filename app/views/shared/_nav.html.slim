@@ -1,7 +1,7 @@
 .container.mb-2
   .py-2.border-bottom
     .navbar.navbar-expand-md.navbar-light
-      = link_to 'Доска объявлений', root_path, class: 'navbar-brand me-md-4'
+      = link_to 'Доска объявлений', root_path, class: 'navbar-brand me-md-4' 
 
       #navbarToggler.collapse.navbar-collapse
         ul.nav.nav-pills.flex-grow-1.navbar-nav
@@ -10,12 +10,12 @@
 
           - if user_signed_in?
             li.nav-item
-              = link_to 'Мои объявления', root_path, class: 'nav-link link-dark'
+              = link_to 'Мои объявления', profile_path, class: 'nav-link link-dark'
             li.nav-item
-              = link_to 'Добавить', root_path, class: 'nav-link link-dark'
+              = link_to 'Добавить', new_bulletin_path, class: 'nav-link link-dark'
 
             li.nav-item.d-flex.ms-auto
-              = link_to 'Админка', root_path, class: 'nav-link link-dark'
+              = link_to 'Админка', '#', class: 'nav-link link-dark'
 
             li.nav-item.d-flex
               = link_to 'Выйти',

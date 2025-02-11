@@ -1,0 +1,15 @@
+= simple_form_for(bulletin) do |f|
+  - if f.object.errors[:base].present?
+    = f.error_notification message: f.object.errors[:base].to_sentence
+
+  .form-inputs
+    = f.input :title, input_html: { maxlength: 50 }
+    = f.input :description, input_html: { rows: 10, cols: 49, maxlength: 1000 }
+    = f.association :category, collection: Category.order(name: :asc)
+
+    - if bulletin.image.attached? && bulletin.image.attachment.blob.persisted?
+      = image_tag bulletin.image.variant(resize_to_limit: [200, 100]), class: 'img-thumbnail mb-2'
+
+    = f.input :image, as: :file, direct_upload: true
+  .form-actions.mb-3
+    = f.button :submit, class: 'mt-4 btn btn-primary'

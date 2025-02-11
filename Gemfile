@@ -19,6 +19,10 @@ gem 'slim-rails'
 gem 'omniauth-github'
 gem 'omniauth-rails_csrf_protection'
 
+gem 'active_storage_validations'
+gem 'image_processing'
+gem 'ruby-vips'
+
 group :development, :test do
   gem 'debug', platforms: %i[mri], require: 'debug/prelude'
   gem 'dotenv-rails'

@@ -18,5 +18,7 @@ Rails.application.routes.draw do
     delete '/logout', to: 'auth#logout'
 
     resources :bulletins, only: %i[index show new create edit update]
+
+    resource :profile, only: :show, controller: :profile
   end
 end
