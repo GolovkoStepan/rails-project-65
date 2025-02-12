@@ -40,6 +40,26 @@ module Web
       end
     end
 
+    def to_moderate
+      @bulletin = Bulletin.find(params[:id])
+
+      if @bulletin.to_moderate!
+        redirect_to profile_path, notice: 'Успешно'
+      else
+        redirect_to profile_path, notice: 'Ошибка при изменении статуса'
+      end
+    end
+
+    def archive
+      @bulletin = Bulletin.find(params[:id])
+
+      if @bulletin.archive!
+        redirect_to profile_path, notice: 'Успешно'
+      else
+        redirect_to profile_path, notice: 'Ошибка при изменении статуса'
+      end
+    end
+
     private
 
     def bulletin_params

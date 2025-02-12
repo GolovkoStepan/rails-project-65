@@ -1,5 +1,12 @@
 - if flash.any?
-  .container.my-2
-    - flash.to_hash.each_value do |msg|
-      .alert.alert-info
-        = msg
+  .row
+    .col
+      - if notice
+        .alert.alert-info.alert-dismissible.fade.show.m-0.mb-4 role="alert"
+          = notice.html_safe
+          button{type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"}
+
+      - if alert
+        .alert.alert-danger.alert-dismissible.fade.show.m-0.mb-4  role="alert"
+          = alert.html_safe
+          button{type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"}

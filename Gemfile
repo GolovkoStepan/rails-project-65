@@ -13,6 +13,8 @@ gem 'sqlite3', '>= 1.4'
 gem 'stimulus-rails'
 gem 'turbo-rails'
 
+gem 'aasm'
+
 gem 'simple_form'
 gem 'slim-rails'
 
