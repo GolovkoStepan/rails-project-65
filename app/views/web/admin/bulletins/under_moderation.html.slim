@@ -1,0 +1,25 @@
+h3.mb-4 = t('.title')
+
+table.table.table-borderless.table-light
+  thead
+    tr
+      th{scope='col'} = t('.table.title')
+      th{scope='col'} = t('.table.date')
+      th{scope='col'} = t('.table.actions')
+    tbody
+      - @bulletins.each do |bulletin|
+        tr
+          td = link_to bulletin.title, bulletin_path(bulletin)
+          td = time_ago_in_words(bulletin.created_at)
+          td
+            - if bulletin.may_publish?
+              = link_to publish_admin_bulletin_path(bulletin), data: { turbo_method: :patch }, class: 'link-primary me-3', title: t('.publish') do
+                i.bi.bi-file-earmark-check
+
+            - if bulletin.may_reject?
+              = link_to reject_admin_bulletin_path(bulletin), data: { turbo_method: :patch }, class: 'link-primary me-3', title: t('.reject') do
+                i.bi.bi-file-earmark-x
+
+            - if bulletin.may_archive?
+              = link_to archive_admin_bulletin_path(bulletin), data: { turbo_method: :patch, turbo_confirm: t('.confirm_archive') }, class: 'link-danger', title: t('.archive') do
+                i.bi.bi-archive

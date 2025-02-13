@@ -27,11 +27,13 @@ Rails.application.routes.draw do
     resource :profile, only: :show, controller: :profile
 
     namespace 'admin' do
-      get '/', to: 'bulletins#index'
+      get '/', to: 'bulletins#under_moderation'
 
       resources :categories, only: %i[index new create edit update destroy]
 
       resources :bulletins, only: [:index] do
+        get 'under_moderation', on: :collection
+
         member do
           patch :publish
           patch :reject

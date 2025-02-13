@@ -2,8 +2,6 @@
 
 module Web
   class AuthController < ApplicationController
-    skip_before_action :authenticate_user!, only: :callback
-
     def callback
       @user = User.find_or_create_by(email: omniauth.info['email'], name: omniauth.info['name'])
       session[:user_id] = @user.id if @user.persisted?

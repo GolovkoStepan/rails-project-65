@@ -3,10 +3,10 @@
     .col
       - if notice
         .alert.alert-info.alert-dismissible.fade.show.m-0.mb-4 role="alert"
-          = notice.html_safe
+          = notice
           button{type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"}
 
       - if alert
         .alert.alert-danger.alert-dismissible.fade.show.m-0.mb-4  role="alert"
-          = alert.html_safe
+          = alert
           button{type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"}

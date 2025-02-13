@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Bulletin < ApplicationRecord
   include AASM
 
@@ -35,5 +37,15 @@ class Bulletin < ApplicationRecord
     event :archive do
       transitions from: %i[draft under_moderation published rejected], to: :archived
     end
+  end
+
+  scope :published_or_created_by, ->(user) { where(user_id: user.id) }
+
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[state title]
+  end
+
+  def self.ransackable_associations(_auth_object = nil)
+    ['category']
   end
 end

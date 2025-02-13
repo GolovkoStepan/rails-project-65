@@ -1,0 +1,159 @@
+ru:
+  actions:
+    archive: В архив
+    archive_confirmation: Вы подтверждаете архивацию?
+    create: Создать
+    delete: Удалить
+    delete_confirmation: Вы подтверждаете удаление?
+    edit: Редактировать
+    publish: Опубликовать
+    reject: Отклонить
+    show: Показать
+    title: Действия
+    to_moderate: На модерацию
+
+  views:
+    pagination:
+      first: "&laquo"
+      last: "&raquo;"
+      next: "&rsaquo;"
+      previous: "&lsaquo;"
+      truncate: "&hellip;"
+
+  web:
+    admin:
+      bulletins:
+        archive:
+          error: Объявление не было отправлено в архив!
+          success: Объявление успешно отправлено в архив!
+          actions: Действия
+          archive: В архив
+          confirm_archive: Вы действительно хотите архивировать публикацию?
+          confirm_reject: Вы действительно хотите отклонить публикацию?
+          date: Дата создания
+          publish: Опубликовать
+          reject: Отклонить
+          show: Показать
+          state: Состояние
+          title: Название
+
+        publish:
+          error: Объявление не было опубликовано!
+          success: Объявление успешно опубликовано!
+
+        reject:
+          error: Объявление не было отклонено!
+          success: Объявление успешно отклонено!
+
+        index:
+          title: Все объявления
+
+          table:
+            title: Название
+            state: Состояние
+            date: Дата создания
+            actions: Действия
+
+          search_form:
+            reset: Сброс
+
+        under_moderation:
+          title: Объявления на модерации
+
+          table:
+            title: Название
+            date: Дата создания
+            actions: Действия
+
+          publish: Опубликовать
+          reject: Отклонить
+          archive: В архив
+
+      categories:
+        index:
+          id: ID
+          add: Добавить категорию
+          categories: Категории
+          destroy: Удалить
+          destroy_confirmation: Вы уверены?
+          edit: Редактировать
+          name: Название
+          new: Новая категория
+          title: Категории
+          actions: Действия
+
+        create:
+          success: Категория успешно создана!
+
+        destroy:
+          cant_delete_category: Невозможно удалить категорию со связанными публикациями
+          error: Эта категория не может быть удалена!
+          success: Категория успешно удалена!
+
+        edit:
+          title: Редактировать категорию
+
+        new:
+          title: Создать новую категорию
+
+        update:
+          success: Категория успешно обновлена!
+
+    auth:
+      callback:
+        success: Вы успешно вошли в систему!
+
+      delete:
+        success: Вы успешно вышли из системы!
+
+    bulletins:
+      index:
+        title: Объявления
+        search_form:
+          reset: Сброс
+
+      archive:
+        failure: Объявление не было отправлено в архив!
+        success: Объявление успешно отправлено в архив!
+
+      create:
+        failure: Объявление не было создано. Проверьте ошибки ниже.
+        success: Объявление успешно создано!
+
+      edit:
+        title: Редактировать объявление
+
+      moderation:
+        title: Объявления на модерации
+
+      new:
+        title: Создать объявление
+
+      show:
+        author: Автор
+        description: Описание
+        edit: Редактировать
+
+      to_moderate:
+        failure: Объявление не было отправлено на модерирование!
+        success: Объявление успешно отправлено на модерирование!
+
+      update:
+        failure: Объявление не обновлено. Проверьте ошибки ниже.
+        success: Объявление успешно обновлено!
+
+    profile:
+      show:
+        title: Мои Объявления
+        edit: Редактировать
+        to_moderate: На модерацию
+        archive: В архив
+
+        table:
+          title: Название
+          state: Состояние
+          date: Дата создания
+          actions: Действия
+
+        search_form:
+          reset: Сброс

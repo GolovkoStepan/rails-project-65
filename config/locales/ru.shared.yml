@@ -1,0 +1,18 @@
+ru:
+  shared:
+    nav:
+      home_link: Доска объявлений
+      main: Главная
+      my_bulletins: Мои объявления
+      create_bulletin: Добавить
+      admin_panel: Админка
+      log_out: Выйти
+      github_login: Войти
+    
+    footer:
+      footer_text: Хекслет
+
+    admin_sidebar:
+      under_moderation: Объявления на модерации
+      all_bulletins: Все объявления
+      categories: Все категории

@@ -2,12 +2,19 @@
 
 module Web
   class ApplicationController < ActionController::Base
-    before_action :authenticate_user!
+    include Pundit::Authorization
 
     helper_method :current_user, :user_signed_in?
 
-    def authenticate_user!
-      redirect_to root_path, alert: 'Requires authentication' unless user_signed_in?
+    rescue_from Pundit::NotAuthorizedError, with: :not_authorized_handler
+
+    private
+
+    def not_authorized_handler(exception)
+      policy_name = exception.policy.class.to_s.underscore
+      alert = t "#{policy_name}.#{exception.query}", scope: :pundit, default: :default
+
+      redirect_back(fallback_location: root_path, alert:)
     end
 
     def current_user

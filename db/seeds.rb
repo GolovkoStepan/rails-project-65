@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 [
   'Личные вещи',
   'Транспорт',

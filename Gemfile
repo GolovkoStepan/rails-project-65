@@ -15,6 +15,8 @@ gem 'turbo-rails'
 
 gem 'aasm'
 
+gem 'pundit'
+
 gem 'simple_form'
 gem 'slim-rails'
 
@@ -24,6 +26,9 @@ gem 'omniauth-rails_csrf_protection'
 gem 'active_storage_validations'
 gem 'image_processing'
 gem 'ruby-vips'
+
+gem 'kaminari'
+gem 'ransack'
 
 group :development, :test do
   gem 'debug', platforms: %i[mri], require: 'debug/prelude'

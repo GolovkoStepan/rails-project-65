@@ -1,8 +1,16 @@
+# frozen_string_literal: true
+
 module Web
   module Admin
     class BulletinsController < ApplicationController
       def index
-        @bulletins = Bulletin.all
+        @q = Bulletin.ransack(params[:q])
+        @q.sorts = 'created_at desc'
+        @bulletins = @q.result.page(params[:page])
+      end
+
+      def under_moderation
+        @bulletins = Bulletin.under_moderation.page(params[:page])
       end
 
       def archive

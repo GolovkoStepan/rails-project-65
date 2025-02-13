@@ -1,0 +1,71 @@
+ru:
+  activerecord:
+    attributes:
+      bulletin:
+        category: Категория
+        created_at: Дата создания
+        description: Описание
+        image: Изображение
+        state: Состояние
+        state/archived: В архиве
+        state/draft: Черновик
+        state/published: Опубликовано
+        state/rejected: Отклонено
+        state/under_moderation: На модерации
+        title: Заголовок
+
+      bulletin/state:
+        archived: В архиве
+        draft: Черновик
+        published: Опубликовано
+        rejected: Отклонено
+        under_moderation: На модерации
+
+      category:
+        id: ID
+        name: Название
+
+    events:
+      bulletin:
+        archive: В архив
+        create: Создать
+        edit: Редактировать
+        publish: Опубликовать
+        reject: Отменить
+        show: Показать
+        to_moderate: Отправить на модерацию
+
+    models:
+      bulletin:
+        one: объявление
+        other: объявления
+
+      category:
+        one: категорию
+        other: категории
+
+      user: Пользователь
+
+    errors:
+      models:
+        bulletin:
+          attributes:
+            category:
+              required: обязательна
+
+            description:
+              blank: не может быть пустым
+              too_short: слишком короткое
+
+            image:
+              blank: обязательно
+
+            title:
+              blank: не может быть пустым
+              too_short: слишком короткий
+
+        category:
+          attributes:
+            name:
+              too_short: слишком короткое
+              blank: обязательно
