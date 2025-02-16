@@ -1,0 +1,26 @@
+one_image_blob:
+  key: 1y49vte7amh1gkmvlt7g51393n3r # ActiveStorage::Blob.generate_unique_secure_token
+  filename: one.jpeg
+  content_type: image/jpeg
+  metadata: '{"identified":true,"analyzed":true}'
+  byte_size: <%= File.size('test/fixtures/files/one.jpeg') %>
+  checksum: <%= Digest::MD5.file('test/fixtures/files/one.jpeg').base64digest %>
+  service_name: test
+
+two_image_blob:
+  key: v4oamgiiynwsjo85wg4suuqeoyrl
+  filename: two.jpeg
+  content_type: image/jpeg
+  metadata: '{"identified":true,"analyzed":true}'
+  byte_size: <%= File.size('test/fixtures/files/two.jpeg') %>
+  checksum: <%= Digest::MD5.file('test/fixtures/files/two.jpeg').base64digest %>
+  service_name: test
+
+three_image_blob:
+  key: 6womenriykvlpk9k8a1amvbnrl9r
+  filename: three.jpeg
+  content_type: image/jpeg
+  metadata: '{"identified":true,"analyzed":true}'
+  byte_size: <%= File.size('test/fixtures/files/three.jpeg') %>
+  checksum: <%= Digest::MD5.file('test/fixtures/files/three.jpeg').base64digest %>
+  service_name: test

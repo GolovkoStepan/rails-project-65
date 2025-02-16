@@ -3,10 +3,11 @@
 module Web
   module Admin
     class CategoriesController < ApplicationController
+      before_action :authorize_action
       before_action :set_category, only: %i[edit update destroy]
 
       def index
-        @categories = Category.order(name: :asc).page(params[:page])
+        @categories = Category.page(params[:page])
       end
 
       def new
@@ -17,6 +18,7 @@ module Web
 
       def create
         @category = Category.new(category_params)
+
         if @category.save
           redirect_to admin_categories_path, notice: t('.success')
         else
@@ -33,9 +35,7 @@ module Web
       end
 
       def destroy
-        if @category.bulletins.any?
-          redirect_to admin_categories_path, alert: t('.cant_delete_category')
-        elsif @category.destroy
+        if @category.destroy
           redirect_to admin_categories_path, notice: t('.success')
         else
           redirect_to admin_categories_path, alert: @category.errors.full_messages.to_sentence
@@ -43,6 +43,10 @@ module Web
       end
 
       private
+
+      def authorize_action
+        authorize(%i[admin category])
+      end
 
       def category_params
         params.require(:category).permit(:name)

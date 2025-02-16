@@ -1,0 +1,14 @@
+one_image:
+  name: image
+  record: one (Bulletin)
+  blob: one_image_blob
+
+two_image:
+  name: image
+  record: under_moderation (Bulletin)
+  blob: two_image_blob
+
+three_image:
+  name: image
+  record: draft (Bulletin)
+  blob: three_image_blob

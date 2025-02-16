@@ -25,7 +25,6 @@ gem 'omniauth-rails_csrf_protection'
 
 gem 'active_storage_validations'
 gem 'image_processing'
-gem 'ruby-vips'
 
 gem 'kaminari'
 gem 'ransack'
@@ -38,9 +37,7 @@ end
 
 group :development do
   gem 'brakeman', require: false
-  gem 'rubocop-capybara', require: false
   gem 'rubocop-rails-omakase', require: false
-  gem 'rubocop-slim', require: false
   gem 'slim_lint', require: false
   gem 'web-console'
 end

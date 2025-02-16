@@ -39,13 +39,11 @@ class Bulletin < ApplicationRecord
     end
   end
 
-  scope :published_or_created_by, ->(user) { where(user_id: user.id) }
-
-  def self.ransackable_attributes(_auth_object = nil)
+  def self.ransackable_attributes(_ = nil)
     %w[state title]
   end
 
-  def self.ransackable_associations(_auth_object = nil)
+  def self.ransackable_associations(_ = nil)
     ['category']
   end
 end

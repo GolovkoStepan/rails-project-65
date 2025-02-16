@@ -3,9 +3,10 @@
 module Web
   module Admin
     class BulletinsController < ApplicationController
+      before_action :authorize_action
+
       def index
-        @q = Bulletin.ransack(params[:q])
-        @q.sorts = 'created_at desc'
+        @q = Bulletin.order(created_at: :desc).ransack(params[:q])
         @bulletins = @q.result.page(params[:page])
       end
 
@@ -19,7 +20,7 @@ module Web
         if @bulletin.archive!
           redirect_to admin_path, notice: t('.success')
         else
-          redirect_to admin_path, notice: t('.failure')
+          redirect_to admin_path, alert: t('.failure')
         end
       end
 
@@ -29,7 +30,7 @@ module Web
         if @bulletin.publish!
           redirect_to admin_path, notice: t('.success')
         else
-          redirect_to admin_path, notice: t('.failure')
+          redirect_to admin_path, alert: t('.failure')
         end
       end
 
@@ -39,8 +40,14 @@ module Web
         if @bulletin.reject!
           redirect_to admin_path, notice: t('.success')
         else
-          redirect_to admin_path, notice: t('.failure')
+          redirect_to admin_path, alert: t('.failure')
         end
+      end
+
+      private
+
+      def authorize_action
+        authorize(%i[admin bulletin])
       end
     end
   end

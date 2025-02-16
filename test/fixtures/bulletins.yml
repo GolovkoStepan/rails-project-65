@@ -1,13 +1,22 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  description: MyText
+  title: <%= Faker::Restaurant.name %>
+  description: <%= Faker::Restaurant.description %>
   user: one
   category: one
+  state: published
 
-two:
-  title: MyString
-  description: MyText
-  user: two
-  category: two
+under_moderation:
+  title: <%= Faker::Restaurant.name %>
+  description: <%= Faker::Restaurant.description %>
+  user: one
+  category: one
+  state: under_moderation
+
+draft:
+  title: <%= Faker::Restaurant.name %>
+  description: <%= Faker::Restaurant.description %>
+  user: one
+  category: one
+  state: draft

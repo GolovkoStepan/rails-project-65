@@ -1,7 +1,7 @@
 .container.mb-2
   .py-2.border-bottom
     .navbar.navbar-expand-md.navbar-light
-      = link_to t('.home_link'), root_path, class: 'navbar-brand me-md-4' 
+      = link_to t('.home_link'), root_path, class: 'navbar-brand me-md-4'
 
       #navbarToggler.collapse.navbar-collapse
         ul.nav.nav-pills.flex-grow-1.navbar-nav
@@ -13,7 +13,7 @@
               = link_to t('.my_bulletins'), profile_path, class: 'nav-link link-dark'
             li.nav-item
               = link_to t('.create_bulletin'), new_bulletin_path, class: 'nav-link link-dark'
-          
+
             - if current_user.admin?
               li.nav-item.d-flex.ms-auto
                 = link_to t('.admin_panel'), admin_path, class: 'nav-link link-dark'

@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     root 'bulletins#index'
 
     post 'auth/:provider', to: 'auth#request', as: :auth_request
-    get 'auth/:provider/callback', to: 'auth#callback', as: :auth_callback
+    get 'auth/:provider/callback', to: 'auth#callback', as: :callback_auth
     delete '/logout', to: 'auth#logout'
 
     resources :bulletins, only: %i[index show new create edit update] do

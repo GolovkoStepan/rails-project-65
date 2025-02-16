@@ -1,25 +1,16 @@
-require:
-  - rubocop-rails
-  - rubocop-capybara
-  - rubocop-slim
-  - rubocop-performance
-
 AllCops:
-  NewCops: enable
   TargetRubyVersion: 3.2.2
-  TargetRailsVersion: 7
-  DisplayCopNames: true
+  NewCops: enable
+  SuggestExtensions: false
   Exclude:
-    - '**/bin/**'
-    - '**/db/schema.rb'
-    - '**/db/migrate/**'
-    - '**/db/data_schema.rb'
-    - '**/vendor/**/*'
-    - '**/node_modules/**/*'
+    - 'bin/**'
+    - 'db/schema.rb'
+    - 'db/migrate/**'
     - 'vendor/**/*'
     - 'node_modules/**/*'
-    - 'code/tmp/**/*'
-  SuggestExtensions: false
+
+require:
+  - rubocop-rails
 
 Rails:
   Enabled: true
@@ -46,7 +37,4 @@ Metrics/BlockLength:
   Enabled: false
 
 Style/AsciiComments:
-  Enabled: false
-
-Metrics/ParameterLists:
   Enabled: false

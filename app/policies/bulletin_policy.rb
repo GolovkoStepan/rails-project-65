@@ -1,15 +1,6 @@
 # frozen_string_literal: true
 
 class BulletinPolicy < ApplicationPolicy
-  class Scope < ApplicationPolicy::Scope
-    def resolve
-      return scope.published unless user
-      return scope.all if user.admin?
-
-      scope.where(state: :published).or(scope.where(user:))
-    end
-  end
-
   def index?
     true
   end
@@ -35,10 +26,10 @@ class BulletinPolicy < ApplicationPolicy
   end
 
   def to_moderate?
-    resource&.may_to_moderate? && (user&.admin? || user&.owns?(record))
+    record&.may_to_moderate? && (user&.admin? || user&.owns?(record))
   end
 
   def archive?
-    resource&.may_archive? && (user&.admin? || user&.owns?(record))
+    record&.may_archive? && (user&.admin? || user&.owns?(record))
   end
 end

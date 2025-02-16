@@ -2,8 +2,19 @@
 
 require 'test_helper'
 
-class Web::ProfileControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
+module Web
+  class ProfileControllerTest < ActionDispatch::IntegrationTest
+    setup do
+      @bulletin = bulletins(:one)
+      @user = users(:one)
+    end
+
+    test 'should get show' do
+      sign_in(@user)
+
+      get profile_url
+
+      assert_response :success
+    end
+  end
 end
