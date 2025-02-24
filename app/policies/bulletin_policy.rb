@@ -18,7 +18,7 @@ class BulletinPolicy < ApplicationPolicy
   end
 
   def edit?
-    user&.admin? || user&.owns?(record)
+    user&.admin? || record_author?
   end
 
   def update?
@@ -26,10 +26,16 @@ class BulletinPolicy < ApplicationPolicy
   end
 
   def to_moderate?
-    record&.may_to_moderate? && (user&.admin? || user&.owns?(record))
+    record&.may_to_moderate? && (user&.admin? || record_author?)
   end
 
   def archive?
-    record&.may_archive? && (user&.admin? || user&.owns?(record))
+    record&.may_archive? && (user&.admin? || record_author?)
+  end
+
+  private
+
+  def record_author?
+    record.user_id == user&.id
   end
 end

@@ -4,6 +4,7 @@ module Web
   module Admin
     class BulletinsController < ApplicationController
       before_action :authorize_action
+      before_action :set_bulletin, only: %i[archive publish reject]
 
       def index
         @q = Bulletin.order(created_at: :desc).ransack(params[:q])
@@ -15,9 +16,7 @@ module Web
       end
 
       def archive
-        @bulletin = Bulletin.find(params[:id])
-
-        if @bulletin.archive!
+        if @bulletin.may_archive? && @bulletin.archive!
           redirect_to admin_path, notice: t('.success')
         else
           redirect_to admin_path, alert: t('.failure')
@@ -25,9 +24,7 @@ module Web
       end
 
       def publish
-        @bulletin = Bulletin.find(params[:id])
-
-        if @bulletin.publish!
+        if @bulletin.may_publish? && @bulletin.publish!
           redirect_to admin_path, notice: t('.success')
         else
           redirect_to admin_path, alert: t('.failure')
@@ -35,9 +32,7 @@ module Web
       end
 
       def reject
-        @bulletin = Bulletin.find(params[:id])
-
-        if @bulletin.reject!
+        if @bulletin.may_reject? && @bulletin.reject!
           redirect_to admin_path, notice: t('.success')
         else
           redirect_to admin_path, alert: t('.failure')
@@ -48,6 +43,10 @@ module Web
 
       def authorize_action
         authorize(%i[admin bulletin])
+      end
+
+      def set_bulletin
+        @bulletin = Bulletin.find(params[:id])
       end
     end
   end
