@@ -7,8 +7,16 @@ module Web
       before_action :set_bulletin, only: %i[archive publish reject]
 
       def index
-        @q = Bulletin.order(created_at: :desc).ransack(params[:q])
-        @bulletins = @q.result.page(params[:page])
+        if params[:state] == 'under_moderation'
+          @bulletins = Bulletin.under_moderation.page(params[:page])
+
+          render :under_moderation
+        else
+          @q = Bulletin.order(created_at: :desc).ransack(params[:q])
+          @bulletins = @q.result.page(params[:page])
+
+          render :index
+        end
       end
 
       def under_moderation

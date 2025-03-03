@@ -57,6 +57,8 @@ ru:
           search_form:
             reset: Сброс
 
+          archive: В архив
+
         under_moderation:
           title: Объявления на модерации
 

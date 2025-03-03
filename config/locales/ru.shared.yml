@@ -1,5 +1,8 @@
 ru:
   shared:
+    auth:
+      success: Аутентификация успешна
+      error: Ошибка аутентификации
     nav:
       home_link: Доска объявлений
       main: Главная

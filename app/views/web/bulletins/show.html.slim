@@ -8,8 +8,9 @@
         .card-title
           h4
             = @bulletin.title
-            = link_to edit_bulletin_path(@bulletin), class: 'float-end', title: t('.edit') do
-              i.bi.bi-pencil-square
+            - if policy(@bulletin).update?
+              = link_to edit_bulletin_path(@bulletin), class: 'float-end', title: t('.edit') do
+                i.bi.bi-pencil-square
 
         p.card-text = @bulletin.description
         p.card-text
