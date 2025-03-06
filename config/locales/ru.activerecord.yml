@@ -47,6 +47,9 @@ ru:
       user: Пользователь
 
     errors:
+      messages:
+        record_invalid: 'не валидная запись'
+
       models:
         bulletin:
           attributes:

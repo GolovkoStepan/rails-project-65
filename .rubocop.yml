@@ -9,7 +9,7 @@ AllCops:
     - 'vendor/**/*'
     - 'node_modules/**/*'
 
-require:
+plugins:
   - rubocop-rails
 
 Rails:
